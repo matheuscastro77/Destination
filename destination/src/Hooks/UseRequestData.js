@@ -2,23 +2,20 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 const UseRequestData = (initialState, url) => {
-    const [data, setData] = useState(initialState)
-    const [data2, setData2] = useState(initialState)
-    const [loading, setLoading] = useState(false)
+    const [dataCountry, setDataCountry] = useState(initialState)
+    const [dataCity, setDataCity] = useState(initialState)
     
     useEffect(() => {
-        setLoading(true)
         axios.get(url)
             .then((response) => {
-                setLoading(false)
-                setData(response.data)
-                setData2(response.data)
+                setDataCountry(response.data)
+                setDataCity(response.data)
             })
             .catch((error) => {
                 console.log(error.message)
             })
     }, [url])
 
-    return [data, setData, data2, setData2, loading]
+    return [dataCountry, setDataCountry, dataCity, setDataCity]
 }
 export default UseRequestData

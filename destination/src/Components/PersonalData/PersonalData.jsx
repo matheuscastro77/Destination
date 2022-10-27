@@ -16,8 +16,15 @@ const PersonalData = () => {
       cpf,
       email,
     };
-    console.log("nome", data);
+
+    console.log(data)
   };
+
+  /* const checkCpf = () => {
+    if(cpf !== 14) {
+      a
+    }
+  } */
 
   /* const onlyNumbers = (str) => str.replace(/[^0-9]/g, ""); */
 
@@ -45,6 +52,7 @@ const PersonalData = () => {
 
         <InputMask
           mask="(99)9 9999-9999"
+          type="tel"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         >
@@ -53,9 +61,8 @@ const PersonalData = () => {
 
         <InputMask
           mask="999.999.999-99"
-          maskPlaceholder="2"
+          maskPlaceholder=" "
           value={cpf}
-          minLength='11'
           onChange={(e) => setCpf(e.target.value)}
         >
           {() => <TextField label="CPF" required minLength='11'/>}
