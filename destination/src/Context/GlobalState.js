@@ -8,10 +8,12 @@ const GlobalState = (props, initialState) => {
     const [cpf, setCpf] = useState('')
     const [country, setCountry] = useState('')
     const [city, setCity] = useState('')
-    const [cidadesFiltradas, setCidadesFiltradas] = useState([])
+    const [filteredCity, setFilteredCity] = useState([])
+    const [isModalVisible, setIsModalVisible] = useState(false)
+
 
     return (
-        <GlobalStateContext.Provider value ={{ name, setName, cidadesFiltradas, setCidadesFiltradas, phone, setPhone, cpf, setCpf, email, setEmail, country, setCountry, city, setCity }}>
+        <GlobalStateContext.Provider value ={{ name, setName, filteredCity, setFilteredCity, phone, setPhone, cpf, setCpf, email, setEmail, country, setCountry, city, setCity, isModalVisible, setIsModalVisible }}>
             {props.children}
         </GlobalStateContext.Provider> 
     )
