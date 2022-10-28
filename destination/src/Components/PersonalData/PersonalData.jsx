@@ -1,39 +1,21 @@
 import React, { useContext } from "react";
-import { Main, Form } from "./Styled";
+import { Main, Form, H2 } from "./Styled";
 import GlobalStateContext from "../../Context/GlobalStateContext";
-import { MenuItem, Select, InputLabel, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import InputMask from "react-input-mask";
 
 const PersonalData = () => {
-  const { name, setName, phone, setPhone, cpf, setCpf, email, setEmail } =
-    useContext(GlobalStateContext);
-
-  const onSubmitEdit = (event) => {
-    event.preventDefault();
-    const data = {
-      name,
-      phone,
-      cpf,
-      email,
-    };
-
-    console.log(data)
-  };
-
-  /* const checkCpf = () => {
-    if(cpf !== 14) {
-      a
-    }
-  } */
-
-  /* const onlyNumbers = (str) => str.replace(/[^0-9]/g, ""); */
+  
+  const { name, setName, phone, setPhone, cpf, setCpf, email, setEmail } = useContext(GlobalStateContext);
 
   return (
     <Main>
-      <Form onSubmit={onSubmitEdit}>
+      <H2>Dados pessoais</H2>
+      <Form>
         <TextField
           label="Nome"
           required
+          sx={{ width: 425 }}
           value={name}
           inputProps={{
             pattern: "^.{3,}$",
@@ -44,6 +26,7 @@ const PersonalData = () => {
 
         <TextField
           label="E-mail"
+          sx={{ width: 425 }}
           required
           type="email"
           value={email}
@@ -56,7 +39,7 @@ const PersonalData = () => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         >
-          {() => <TextField label="Telefone" required />}
+          {() => <TextField label="Telefone" sx={{ width: 425 }} required />}
         </InputMask>
 
         <InputMask
@@ -65,10 +48,8 @@ const PersonalData = () => {
           value={cpf}
           onChange={(e) => setCpf(e.target.value)}
         >
-          {() => <TextField label="CPF" required minLength='11'/>}
+          {() => <TextField label="CPF" required sx={{ width: 425 }} />}
         </InputMask>
-
-        <button> Enviar </button>
       </Form>
     </Main>
   );

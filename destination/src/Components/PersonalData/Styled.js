@@ -1,18 +1,27 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-    border: 2px solid red;
-    height: 50vh;
-    width: 40%;
+    height: 60vh;
+    width: 47.5%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
 `
 
 export const Form = styled.form`
-    display: flex;
+   display: flex;
     flex-direction: column;
-    width: 60%;
+    align-items: center;
     justify-content: space-between;
-    height: 70%;
+    margin: auto 0;
+    height: 60%;
+`
+
+
+export const H2 = styled.h2`
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
 `
